@@ -20,7 +20,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
-  
+  end
 
   def destroy
   end
