@@ -26,7 +26,7 @@
       %h4 Catch Copy
       %p
         = @prototype.catch_copy
-    .col-md-6
+    .col-md-3
       %h4 Concept
       %p
         = @prototype.concept
@@ -37,3 +37,7 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+    - if current_user.id == @prototype.user_id
+      .col-md-3
+        %p
+          = link_to "削除", "/prototypes/#{@prototype.id}", method: :delete
