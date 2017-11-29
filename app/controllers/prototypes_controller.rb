@@ -20,6 +20,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
+  
+
+  def destroy
   end
 
   private
