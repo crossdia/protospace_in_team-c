@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype.update(prototype_params) if @prototype.user_id == current_user.id
-    redirect_to :root, notice: 'prototypes_edit was successfully created'
+    redirect_to ({ action: :show }), notice: 'prototypes was successfully editted'
   end
 
   private
@@ -43,7 +43,14 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:id, :content, :status]
+      captured_images_attributes: [:content, :status]
     )
   end
+
+  def update_data
+  if @prototype.captured_images.nil?
+    @prototype.captured_images.update
+  end
+end
+
 end
