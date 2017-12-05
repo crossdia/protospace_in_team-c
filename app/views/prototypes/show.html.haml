@@ -53,6 +53,8 @@
           = comment.user.name
         %p
           = comment.text
+        - if comment.user_id == current_user.id
+          = link_to "編集", "#"
 
   .row
     .col-md-6
