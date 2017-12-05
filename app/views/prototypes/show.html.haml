@@ -54,7 +54,7 @@
         %p
           = comment.text
         - if comment.user_id == current_user.id
-          = link_to "編集", "#"
+          = link_to "編集", edit_prototype_comment_path(@prototype.id, comment.id)
 
   .row
     .col-md-6
