@@ -45,3 +45,14 @@
       .col-md-3
         %p
           =link_to "編集", "/prototypes/#{@prototype.id}/edit"
+  .row
+    .col-md-6
+      %h4 Comments()
+      %p
+        コメント一覧載せる
+  .row
+    .col-md-6
+    %h4 Write a comment
+    = form_tag(new_prototype_path, method: :post) do
+      = text_field :text, placeholder: "Test"
+      = submit_tag "COMMENT"
