@@ -48,8 +48,12 @@
   .row
     .col-md-6
       %h4 Comments()
-      %p
-        コメント一覧載せる
+      - @prototype.comments.each do |comment|
+        %h5
+          = comment.user.name
+        %p
+          = comment.text
+
   .row
     .col-md-6
     %h4 Write a comment
