@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def update
+    redirect_to controller: :prototypes, action: :show, id: params[:prototype_id]
   end
 
   def destroy
