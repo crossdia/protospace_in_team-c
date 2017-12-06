@@ -55,6 +55,7 @@
           = comment.text
         - if comment.user_id == current_user.id
           = link_to "編集", edit_prototype_comment_path(@prototype.id, comment.id)
+          = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
 
   .row
     .col-md-6
