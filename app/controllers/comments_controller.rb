@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
   end
 
   def update
+    comment = Comment.find(params[:id])
+    comment.update(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id) if current_user.id = comment.user_id
     redirect_to controller: :prototypes, action: :show, id: params[:prototype_id]
   end
 
