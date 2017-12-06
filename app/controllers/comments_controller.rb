@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     if comment.user_id == current_user.id
       comment.destroy
+    end
   end
 
   private
