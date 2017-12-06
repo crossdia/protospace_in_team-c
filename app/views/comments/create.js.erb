@@ -1,0 +1,2 @@
+$("#commentForm").val("");
+$("#comments").html("<%= escape_javascript(render partial: 'prototypes/comment', collection: @prototype.comments) %>");
