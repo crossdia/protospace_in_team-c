@@ -4,11 +4,6 @@ class CommentsController < ApplicationController
   	redirect_to "/prototypes/#{@comment.prototype.id}"
   end
 
-  private
-  def comment_params
-  	params.permit(:text,:prototype_id)
-  end
-
   def edit
   end
 
@@ -16,5 +11,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def comment_params
+    params.permit(:text,:prototype_id)
   end
 end
