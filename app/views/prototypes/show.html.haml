@@ -38,7 +38,7 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
 
-    - if current_user.id == @prototype.user_id
+    - if user_signed_in? && current_user.id == @prototype.user_id
       .col-md-3
         %p
           = link_to "削除", "/prototypes/#{@prototype.id}", method: :delete
@@ -53,7 +53,7 @@
           = comment.user.name
         %p
           = comment.text
-        - if comment.user_id == current_user.id
+        - if user_signed_in? && comment.user_id == current_user.id
           = link_to "編集", edit_prototype_comment_path(@prototype.id, comment.id)
           = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
 
