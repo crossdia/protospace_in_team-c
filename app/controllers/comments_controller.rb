@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  	@comments = Comment.find(params[:id])
   end
 
   def update
