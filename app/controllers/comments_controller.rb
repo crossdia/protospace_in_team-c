@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
   def create
   	@comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id],user_id: current_user.id)
-  	redirect_to "/prototypes/#{@comment.prototype.id}"
+    @prototype = Prototype.find(params[:prototype_id])
   end
 
   def edit
