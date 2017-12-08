@@ -31,6 +31,13 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @capimgs = @prototype.captured_images
+    @capimgs.each do |capimg|
+      if capimg[:status] == 0
+        @main_thumb = capimg
+      end
+    end
+    @sub_thumb = @prototype.set_sub_thumbnails
   end
 
   def update
@@ -53,11 +60,5 @@ class PrototypesController < ApplicationController
       captured_images_attributes: [:content, :status]
     )
   end
-
-  def update_data
-  if @prototype.captured_images.nil?
-    @prototype.captured_images.update
-  end
-end
 
 end
