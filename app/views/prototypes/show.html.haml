@@ -38,10 +38,23 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
 
-    - if current_user.id == @prototype.user_id
+    - if user_signed_in? && current_user.id == @prototype.user_id
       .col-md-3
         %p
           = link_to "削除", "/prototypes/#{@prototype.id}", method: :delete
       .col-md-3
         %p
           =link_to "編集", "/prototypes/#{@prototype.id}/edit"
+  .row
+    .col-md-6
+      %h4
+        #comment-header
+          Comments(#{@prototype.comments.length})
+      #comments
+        = render partial: "prototypes/comment", collection: @prototype.comments
+  .row
+    .col-md-6
+    %h4 Write a comment
+    = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, remote: true) do
+      = text_field_tag :text, "", id: "commentForm"
+      = submit_tag "COMMENT"

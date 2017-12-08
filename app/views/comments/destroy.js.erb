@@ -1,0 +1,2 @@
+$("#comment-header").html("Comments(<%= @prototype.comments.length %>)");
+$("#comments").html("<%= escape_javascript(render partial: 'prototypes/comment', collection: @prototype.comments) %>");
