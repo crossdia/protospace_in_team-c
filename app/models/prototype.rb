@@ -18,6 +18,16 @@ class Prototype < ActiveRecord::Base
     captured_images.main.last.content
   end
 
+  def set_sub_thumbnails
+    sub_thumbs = captured_images.sub
+    i = 0
+    while i < 3
+      sub_thumbs[i] ||= captured_images.new(status: 1)
+      i = i+ 1
+    end
+    return sub_thumbs
+  end
+
   def posted_date
     created_at.strftime('%b %d %a')
   end
