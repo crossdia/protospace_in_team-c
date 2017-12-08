@@ -47,7 +47,9 @@
           =link_to "編集", "/prototypes/#{@prototype.id}/edit"
   .row
     .col-md-6
-      %h4 Comments(#{@prototype.comments.length})
+      %h4
+        #comment-header
+          Comments(#{@prototype.comments.length})
       #comments
         = render partial: "prototypes/comment", collection: @prototype.comments
   .row
