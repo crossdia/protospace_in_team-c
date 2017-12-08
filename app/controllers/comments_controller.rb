@@ -20,7 +20,8 @@ class CommentsController < ApplicationController
     if comment.user_id == current_user.id
       comment.destroy
     end
-    redirect_to controller: :prototypes, action: :show, id: params[:prototype_id]
+    @prototype = Prototype.find(params[:prototype_id])
+    render
   end
 
   private
