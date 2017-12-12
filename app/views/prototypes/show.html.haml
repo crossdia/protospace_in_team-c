@@ -14,9 +14,18 @@
             .degree
               = @prototype.user.position
     .col-md-6.text-right
-      = button_to "増えるボタン", {controller: :likes, action: :create, prototype_id: @prototype.id}
-      = button_to "減るボタン", {controller: :likes, action: :destroy, prototype_id: @prototype.id}, method: :delete
-
+      .like-button
+        = button_to( controller: :likes, action: :create, prototype_id: @prototype.id) do
+          = image_tag("icon_heart.svg", size: "16x16")
+          LIKE
+          %span.num
+            0
+      .unlike-button
+        = button_to({controller: :likes, action: :destroy, prototype_id: @prototype.id}, method: :delete) do
+          = image_tag("icon_red_heart.svg", size: "16x16")
+          LIKE
+          %span.num
+            0
 
   .row
     .col-md-9.image-box
