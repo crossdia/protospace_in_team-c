@@ -14,7 +14,9 @@
             .degree
               = @prototype.user.position
     .col-md-6.text-right
-      = button_to "ボタン", {controller: :likes, action: :create, prototype_id: @prototype.id}
+      = button_to "増えるボタン", {controller: :likes, action: :create, prototype_id: @prototype.id}
+      = button_to "減るボタン", {controller: :likes, action: :destroy, prototype_id: @prototype.id}, method: :delete
+
 
   .row
     .col-md-9.image-box
