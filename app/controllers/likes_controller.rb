@@ -1,24 +1,20 @@
 class LikesController < ApplicationController
 
   def create
-    like = Like.new(like_params.merge( {user_id: current_user.id}) )
-    if like.save
-        redirect_to( controller: :prototypes, action: :show, id: params[:prototype_id] )
-    else
-      render :root
-    end
+    set_prototype
+    @like = Like.create(like_params.merge( {user_id: current_user.id}) )
   end
 
   def destroy
-    prototype = Prototype.find(params[:prototype_id])
-    like = current_user.likes.find_by(prototype_id: params[:prototype_id])
-    if like
-      like.destroy
-    end
-    redirect_to( controller: :prototypes, action: :show, id: params[:prototype_id] )
+    set_prototype
+    @like = current_user.likes.find_by(prototype_id: params[:prototype_id])
+    @like.destroy
   end
 
   private
+  def set_prototype
+    @prototype = Prototype.find(params[:prototype_id])
+  end
   def like_params
     params.permit(:prototype_id)
   end

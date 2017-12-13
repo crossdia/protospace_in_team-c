@@ -15,7 +15,7 @@
               = @prototype.user.position
     .col-md-6.text-right
       .like-button
-        = render partial: "like", locals: {prototype: @prototype}
+        = render partial: "like", locals: {prototype: @prototype, like: @like}
 
   .row
     .col-md-9.image-box

@@ -1,12 +1,12 @@
 - if user_signed_in?
-  - if current_user.likes.find_by(prototype_id: prototype.id)
-    = button_to({controller: :likes, action: :destroy, prototype_id: @prototype.id}, method: :delete) do
+  - if current_user.likes.find_by(prototype_id: params[:prototype_id])
+    = button_to( {controller: :likes, action: :destroy, prototype_id: prototype.id, id: like.id}, method: :delete, remote: true) do
       = image_tag("icon_red_heart.svg", size: "16x16")
       LIKE
       %span.num
         = prototype.likes.count
   - else
-    = button_to( controller: :likes, action: :create, prototype_id: @prototype.id) do
+    = button_to( {controller: :likes, action: :create, prototype_id: prototype.id}, remote: true) do
       = image_tag("icon_heart.svg", size: "16x16")
       LIKE
       %span.num
