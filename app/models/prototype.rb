@@ -7,6 +7,8 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 
+  accepts_nested_attributes_for :tags
+
   validates :title,
             :catch_copy,
             :concept,
@@ -21,6 +23,16 @@ class Prototype < ActiveRecord::Base
   end
 
   def set_sub_thumbnails
+    sub_thumbs = captured_images.sub
+    i = 0
+    while i < 3
+      sub_thumbs[i] ||= captured_images.new(status: 1)
+      i = i+ 1
+    end
+    return sub_thumbs
+  end
+
+  def set_tag_forms
     sub_thumbs = captured_images.sub
     i = 0
     while i < 3
