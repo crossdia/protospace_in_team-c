@@ -21,6 +21,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @like = current_user.likes.find_by(prototype_id: params[:id])
   end
 
   def destroy

@@ -11,6 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20171211005501) do
+=======
 ActiveRecord::Schema.define(version: 20171211013900) do
 
   create_table "captured_images", force: :cascade do |t|
@@ -29,6 +31,9 @@ ActiveRecord::Schema.define(version: 20171211013900) do
     t.datetime "updated_at"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4, null: false
+    t.integer  "prototype_id", limit: 4, null: false
   create_table "prototype_tags", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
     t.integer  "tag_id",       limit: 4
