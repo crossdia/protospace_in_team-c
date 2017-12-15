@@ -32,14 +32,14 @@ class Prototype < ActiveRecord::Base
     return sub_thumbs
   end
 
-  def set_tag_forms
-    sub_thumbs = captured_images.sub
+  def set_tag_list
+    tag_list = tags
     i = 0
     while i < 3
-      sub_thumbs[i] ||= captured_images.new(status: 1)
+      tag_list[i] ||= tags.new(status: 1)
       i = i+ 1
     end
-    return sub_thumbs
+    return tag_list
   end
 
   def posted_date

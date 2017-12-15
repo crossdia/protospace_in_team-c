@@ -39,6 +39,7 @@ class PrototypesController < ApplicationController
       end
     end
     @sub_thumb = @prototype.set_sub_thumbnails
+    @tag_list = @prototype.set_tag_list
   end
 
   def update
@@ -58,8 +59,8 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status],
-      tags_attributes: [:name]
+      captured_images_attributes: [:content, :status, :id],
+      tags_attributes: [:name, :id]
     )
   end
 end

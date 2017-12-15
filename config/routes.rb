@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :prototypes do
     resources :comments, except: [:show, :index, :new]
-    resources :tags
   end
+  resources :tags
   resources :users, only: [:show, :edit, :update]
 end
