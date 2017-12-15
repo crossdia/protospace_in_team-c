@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
+  protect_from_forgery except: :update
+
   def create
   	@comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id],user_id: current_user.id)
     @prototype = Prototype.find(params[:prototype_id])
@@ -7,6 +9,10 @@ class CommentsController < ApplicationController
 
   def edit
   	@comments = find_comment
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update

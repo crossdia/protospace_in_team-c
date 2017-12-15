@@ -1,7 +1,9 @@
-%h5
-  = comment.user.name
-%p
-  = comment.text
-- if user_signed_in? && comment.user_id == current_user.id
-  = link_to "編集", edit_prototype_comment_path(@prototype.id, comment.id)
-  = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete, remote: true
+#comment{id: comment.id}
+  %h5
+    = comment.user.name
+  #comment_message{id: comment.id}
+    %p
+      = comment.text
+  - if user_signed_in? && comment.user_id == current_user.id
+    = link_to "編集", edit_prototype_comment_path(@prototype.id, comment.id), class: "comment_edit"
+    = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete, remote: true
