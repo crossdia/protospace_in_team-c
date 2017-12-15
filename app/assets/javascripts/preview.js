@@ -17,7 +17,8 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "100%",
+                  class: "img-responsive img-size-fix",
+                  style: "margin: 0 auto; object-fit:contain;",
                   id: "prototype_captured_images_attributes_0_content",
                   title: file.name
               }));
@@ -47,7 +48,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  max-height: "200px",
+                  class: "img-responsive img-size-fix",
                   id: "prototype_captured_images_attributes_1_content",
                   title: file.name
               }));
@@ -77,7 +78,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  max-height: "200px",
+                  class: "img-responsive img-size-fix",
                   id: "prototype_captured_images_attributes_2_content",
                   title: file.name
               }));
@@ -105,8 +106,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "100%",
-                  height: "100%",
+                  class: "img-responsive img-size-fix",
                   id: "prototype_captured_images_attributes_3_content",
                   title: file.name
               }));
