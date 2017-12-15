@@ -7,6 +7,8 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 
+  accepts_nested_attributes_for :tags
+
   validates :title,
             :catch_copy,
             :concept,
@@ -28,6 +30,16 @@ class Prototype < ActiveRecord::Base
       i = i+ 1
     end
     return sub_thumbs
+  end
+
+  def set_tag_list
+    tag_list = tags
+    i = 0
+    while i < 3
+      tag_list[i] ||= tags.new(status: 1)
+      i = i+ 1
+    end
+    return tag_list
   end
 
   def posted_date

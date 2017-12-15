@@ -34,10 +34,8 @@
       %h4 Tag List
       %ul.proto-tag-list.list-inline
         %li
-          %a{href: "#", class: "btn btn-default"} iPad
-        %li
-          %a{href: "#", class: "btn btn-default"} wireframe
-
+          - @prototype.tags.each do |tag|
+            %a{href: "/tags/#{tag.id}", class: "btn btn-default"}= tag.name
     - if user_signed_in? && current_user.id == @prototype.user_id
       .col-md-3
         %p

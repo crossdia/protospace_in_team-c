@@ -10,12 +10,12 @@
           = link_to "Popular", "#"
         %li.btn-default.btn-popular
           = link_to "Newest", "#"
-      = link_to "VIEW TAGS", tags_path, class: "btn btn-default col-lg-1"
+      = link_to "VIEW TAGS", "#", class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
-    = render partial: 'prototypes/prototype', collection: @prototypes
-
-.text-center
-  %ul.pagination
-    = paginate(@prototypes)
+    %ul.nav.nav-pills.col-lg-11
+      %li.btn-default.btn-popular
+      - @tags.each do |tag|
+        = link_to "tags/#{tag.id}", class: "btn btn-default col-lg-1" do
+          = tag.name
